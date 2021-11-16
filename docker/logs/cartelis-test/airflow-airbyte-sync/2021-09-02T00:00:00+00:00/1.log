@@ -1,0 +1,53 @@
+[2021-09-03 12:48:49,261] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: cartelis-test.airflow-airbyte-sync 2021-09-02T00:00:00+00:00 [queued]>
+[2021-09-03 12:48:49,277] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: cartelis-test.airflow-airbyte-sync 2021-09-02T00:00:00+00:00 [queued]>
+[2021-09-03 12:48:49,277] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-09-03 12:48:49,277] {taskinstance.py:1088} INFO - Starting attempt 1 of 2
+[2021-09-03 12:48:49,277] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-09-03 12:48:49,286] {taskinstance.py:1107} INFO - Executing <Task(AirbyteTriggerSyncOperator): airflow-airbyte-sync> on 2021-09-02T00:00:00+00:00
+[2021-09-03 12:48:49,291] {standard_task_runner.py:52} INFO - Started process 1223 to run task
+[2021-09-03 12:48:49,296] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'cartelis-test', '***-airbyte-sync', '2021-09-02T00:00:00+00:00', '--job-id', '7', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/test_dag.py', '--cfg-path', '/tmp/tmp8fqv0ht_', '--error-file', '/tmp/tmpyy0bnkjy']
+[2021-09-03 12:48:49,296] {standard_task_runner.py:77} INFO - Job 7: Subtask ***-airbyte-sync
+[2021-09-03 12:48:49,342] {logging_mixin.py:104} INFO - Running <TaskInstance: cartelis-test.***-airbyte-sync 2021-09-02T00:00:00+00:00 [running]> on host 5249c6c2b9d9
+[2021-09-03 12:48:49,431] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=cartelis-test
+AIRFLOW_CTX_TASK_ID=***-airbyte-sync
+AIRFLOW_CTX_EXECUTION_DATE=2021-09-02T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-09-02T00:00:00+00:00
+[2021-09-03 12:48:49,449] {base.py:78} INFO - Using connection to: id: ***-airbyte. Host: 164.90.173.70, Port: 8001, Schema: , Login: , Password: None, extra: {}
+[2021-09-03 12:48:49,452] {http.py:140} INFO - Sending 'POST' to url: http://164.90.173.70:8001/api/v1/connections/sync
+[2021-09-03 12:48:49,552] {airbyte.py:77} INFO - Job 2 was submitted to Airbyte Server
+[2021-09-03 12:48:49,553] {airbyte.py:79} INFO - Waiting for job 2 to complete
+[2021-09-03 12:48:52,565] {base.py:78} INFO - Using connection to: id: ***-airbyte. Host: 164.90.173.70, Port: 8001, Schema: , Login: , Password: None, extra: {}
+[2021-09-03 12:48:52,572] {http.py:140} INFO - Sending 'POST' to url: http://164.90.173.70:8001/api/v1/jobs/get
+[2021-09-03 12:48:55,621] {base.py:78} INFO - Using connection to: id: ***-airbyte. Host: 164.90.173.70, Port: 8001, Schema: , Login: , Password: None, extra: {}
+[2021-09-03 12:48:55,622] {http.py:140} INFO - Sending 'POST' to url: http://164.90.173.70:8001/api/v1/jobs/get
+[2021-09-03 12:48:58,650] {base.py:78} INFO - Using connection to: id: ***-airbyte. Host: 164.90.173.70, Port: 8001, Schema: , Login: , Password: None, extra: {}
+[2021-09-03 12:48:58,654] {http.py:140} INFO - Sending 'POST' to url: http://164.90.173.70:8001/api/v1/jobs/get
+[2021-09-03 12:49:01,677] {base.py:78} INFO - Using connection to: id: ***-airbyte. Host: 164.90.173.70, Port: 8001, Schema: , Login: , Password: None, extra: {}
+[2021-09-03 12:49:01,678] {http.py:140} INFO - Sending 'POST' to url: http://164.90.173.70:8001/api/v1/jobs/get
+[2021-09-03 12:49:04,704] {base.py:78} INFO - Using connection to: id: ***-airbyte. Host: 164.90.173.70, Port: 8001, Schema: , Login: , Password: None, extra: {}
+[2021-09-03 12:49:04,705] {http.py:140} INFO - Sending 'POST' to url: http://164.90.173.70:8001/api/v1/jobs/get
+[2021-09-03 12:49:07,765] {base.py:78} INFO - Using connection to: id: ***-airbyte. Host: 164.90.173.70, Port: 8001, Schema: , Login: , Password: None, extra: {}
+[2021-09-03 12:49:07,766] {http.py:140} INFO - Sending 'POST' to url: http://164.90.173.70:8001/api/v1/jobs/get
+[2021-09-03 12:49:10,792] {base.py:78} INFO - Using connection to: id: ***-airbyte. Host: 164.90.173.70, Port: 8001, Schema: , Login: , Password: None, extra: {}
+[2021-09-03 12:49:10,793] {http.py:140} INFO - Sending 'POST' to url: http://164.90.173.70:8001/api/v1/jobs/get
+[2021-09-03 12:49:13,817] {base.py:78} INFO - Using connection to: id: ***-airbyte. Host: 164.90.173.70, Port: 8001, Schema: , Login: , Password: None, extra: {}
+[2021-09-03 12:49:13,818] {http.py:140} INFO - Sending 'POST' to url: http://164.90.173.70:8001/api/v1/jobs/get
+[2021-09-03 12:49:16,858] {base.py:78} INFO - Using connection to: id: ***-airbyte. Host: 164.90.173.70, Port: 8001, Schema: , Login: , Password: None, extra: {}
+[2021-09-03 12:49:16,859] {http.py:140} INFO - Sending 'POST' to url: http://164.90.173.70:8001/api/v1/jobs/get
+[2021-09-03 12:49:19,879] {base.py:78} INFO - Using connection to: id: ***-airbyte. Host: 164.90.173.70, Port: 8001, Schema: , Login: , Password: None, extra: {}
+[2021-09-03 12:49:19,880] {http.py:140} INFO - Sending 'POST' to url: http://164.90.173.70:8001/api/v1/jobs/get
+[2021-09-03 12:49:22,960] {base.py:78} INFO - Using connection to: id: ***-airbyte. Host: 164.90.173.70, Port: 8001, Schema: , Login: , Password: None, extra: {}
+[2021-09-03 12:49:22,961] {http.py:140} INFO - Sending 'POST' to url: http://164.90.173.70:8001/api/v1/jobs/get
+[2021-09-03 12:49:26,054] {base.py:78} INFO - Using connection to: id: ***-airbyte. Host: 164.90.173.70, Port: 8001, Schema: , Login: , Password: None, extra: {}
+[2021-09-03 12:49:26,054] {http.py:140} INFO - Sending 'POST' to url: http://164.90.173.70:8001/api/v1/jobs/get
+[2021-09-03 12:49:29,073] {base.py:78} INFO - Using connection to: id: ***-airbyte. Host: 164.90.173.70, Port: 8001, Schema: , Login: , Password: None, extra: {}
+[2021-09-03 12:49:29,074] {http.py:140} INFO - Sending 'POST' to url: http://164.90.173.70:8001/api/v1/jobs/get
+[2021-09-03 12:49:29,087] {airbyte.py:81} INFO - Job 2 completed successfully
+[2021-09-03 12:49:29,114] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=cartelis-test, task_id=***-airbyte-sync, execution_date=20210902T000000, start_date=20210903T124849, end_date=20210903T124929
+[2021-09-03 12:49:29,167] {dagrun.py:496} WARNING - Failed to get task '<TaskInstance: cartelis-test.airbyte_sync_source_dest 2021-09-02 00:00:00+00:00 [removed]>' for dag 'cartelis-test'. Marking it as removed.
+[2021-09-03 12:49:29,172] {taskinstance.py:1265} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-09-03 12:49:29,204] {local_task_job.py:149} INFO - Task exited with return code 0

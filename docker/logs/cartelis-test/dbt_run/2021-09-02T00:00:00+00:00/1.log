@@ -1,0 +1,37 @@
+[2021-09-03 12:49:30,310] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: cartelis-test.dbt_run 2021-09-02T00:00:00+00:00 [queued]>
+[2021-09-03 12:49:30,328] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: cartelis-test.dbt_run 2021-09-02T00:00:00+00:00 [queued]>
+[2021-09-03 12:49:30,328] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-09-03 12:49:30,328] {taskinstance.py:1088} INFO - Starting attempt 1 of 2
+[2021-09-03 12:49:30,328] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-09-03 12:49:30,339] {taskinstance.py:1107} INFO - Executing <Task(DbtRunOperator): dbt_run> on 2021-09-02T00:00:00+00:00
+[2021-09-03 12:49:30,344] {standard_task_runner.py:52} INFO - Started process 1256 to run task
+[2021-09-03 12:49:30,351] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'cartelis-test', 'dbt_run', '2021-09-02T00:00:00+00:00', '--job-id', '8', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/test_dag.py', '--cfg-path', '/tmp/tmpxrimkgng', '--error-file', '/tmp/tmp5g3b3712']
+[2021-09-03 12:49:30,351] {standard_task_runner.py:77} INFO - Job 8: Subtask dbt_run
+[2021-09-03 12:49:30,400] {logging_mixin.py:104} INFO - Running <TaskInstance: cartelis-test.dbt_run 2021-09-02T00:00:00+00:00 [running]> on host 5249c6c2b9d9
+[2021-09-03 12:49:30,473] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=cartelis-test
+AIRFLOW_CTX_TASK_ID=dbt_run
+AIRFLOW_CTX_EXECUTION_DATE=2021-09-02T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-09-02T00:00:00+00:00
+[2021-09-03 12:49:30,474] {dbt_hook.py:100} INFO - dbt run
+[2021-09-03 12:49:30,486] {dbt_hook.py:109} INFO - Output:
+[2021-09-03 12:49:32,624] {dbt_hook.py:113} INFO - Running with dbt=0.19.0
+[2021-09-03 12:49:33,511] {dbt_hook.py:113} INFO - Found 1 model, 0 tests, 0 snapshots, 0 analyses, 138 macros, 0 operations, 0 seed files, 0 sources, 0 exposures
+[2021-09-03 12:49:33,511] {dbt_hook.py:113} INFO - 
+[2021-09-03 12:49:35,060] {dbt_hook.py:113} INFO - 12:49:35 | Concurrency: 1 threads (target='dev')
+[2021-09-03 12:49:35,060] {dbt_hook.py:113} INFO - 12:49:35 |
+[2021-09-03 12:49:35,064] {dbt_hook.py:113} INFO - 12:49:35 | 1 of 1 START table model dbt_schema.count_by_cut..................... [RUN]
+[2021-09-03 12:49:35,231] {dbt_hook.py:113} INFO - 12:49:35 | 1 of 1 OK created table model dbt_schema.count_by_cut................ [[32mSELECT 5[0m in 0.16s]
+[2021-09-03 12:49:35,273] {dbt_hook.py:113} INFO - 12:49:35 |
+[2021-09-03 12:49:35,273] {dbt_hook.py:113} INFO - 12:49:35 | Finished running 1 table model in 1.76s.
+[2021-09-03 12:49:35,322] {dbt_hook.py:113} INFO - 
+[2021-09-03 12:49:35,322] {dbt_hook.py:113} INFO - [32mCompleted successfully[0m
+[2021-09-03 12:49:35,322] {dbt_hook.py:113} INFO - 
+[2021-09-03 12:49:35,323] {dbt_hook.py:113} INFO - Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2021-09-03 12:49:36,002] {dbt_hook.py:117} INFO - Command exited with return code 0
+[2021-09-03 12:49:36,034] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=cartelis-test, task_id=dbt_run, execution_date=20210902T000000, start_date=20210903T124930, end_date=20210903T124936
+[2021-09-03 12:49:36,068] {taskinstance.py:1265} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2021-09-03 12:49:36,085] {local_task_job.py:149} INFO - Task exited with return code 0

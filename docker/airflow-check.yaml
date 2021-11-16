@@ -1,0 +1,135 @@
+version:                                        "3.7"
+#https://github.com/compose-spec/compose-spec/blob/master/spec.md#using-extensions-as-fragments
+
+# Airflow extensions
+
+# Airflow extensions
+x-airflow-common:                               &airflow-common
+#image:                                       ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.1.2}
+  build:                                        .
+  environment:                                  &airflow-common-env
+    AIRFLOW__CORE__EXECUTOR:                    CeleryExecutor
+    AIRFLOW__CORE__SQL_ALCHEMY_CONN:            postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CELERY__RESULT_BACKEND:            db+postgresql://airflow:airflow@postgres/airflow
+    AIRFLOW__CELERY__BROKER_URL:                redis://:@redis:6379/0
+    AIRFLOW__CORE__FERNET_KEY:                  ''
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES:               'true'
+    AIRFLOW__API__AUTH_BACKEND:                 'airflow.api.auth.backend.basic_auth'
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+    - ./dbt:/opt/airflow/dbt
+
+  user:                                         "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"
+  depends_on:
+    redis:
+      condition:                                service_healthy
+    postgres:
+      condition:                                service_healthy
+
+services:
+# Backend database
+  postgres:
+      image:                                    postgres:13
+      environment:
+        POSTGRES_USER:                          airflow
+        POSTGRES_PASSWORD:                      airflow
+        POSTGRES_DB:                            airflow
+      volumes:
+        - postgres-db-volume:/var/lib/postgresql/data
+      healthcheck:
+        test:                                   ["CMD", "pg_isready", "-U", "airflow"]
+        interval:                               5s
+        retries:                                5
+      restart:                                  always
+      ports:
+              - 5400:5432
+
+  # Airflow services
+  redis:
+      image:                                    redis:latest
+      container_name:                           airflow-redis
+      ports:
+        - 6379:6379
+      healthcheck:
+        test:                                   ["CMD", "redis-cli", "ping"]
+        interval:                               5s
+        timeout:                                30s
+        retries:                                50
+      restart:                                  always
+
+  airflow-webserver:
+      <<:                                       *airflow-common
+      container_name:                           airflow-webserver
+      deploy:
+        resources:
+            limits:
+              cpus: "0.50"
+              memory: 512M
+      command:                                  webserver
+      ports:
+        - 8080:8080
+      healthcheck:
+        test:                                   ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+        interval:                               10s
+        timeout:                                10s
+        retries:                                5
+      restart:                                  always
+
+  airflow-scheduler:
+      <<:                                       *airflow-common
+      container_name:                           airflow-scheduler
+      deploy:
+        resources:
+            limits:
+              cpus: "1"
+              memory: 4000M
+      command:                                  scheduler
+      healthcheck:
+        test:                                   ["CMD-SHELL", 'airflow jobs check --job-type SchedulerJob --hostname "$${HOSTNAME}"']
+        interval:                               10s
+        timeout:                                10s
+        retries:                                5
+      restart:                                  always
+
+  airflow-worker:
+      <<:                                       *airflow-common
+      #build:                                   .
+      container_name:                           airflow-worker
+      deploy:
+        resources:
+            limits:
+              cpus: "1"
+              memory: 1200M
+      command:                                  celery worker
+      healthcheck:
+        test:
+          - "CMD-SHELL"
+          - 'celery --app airflow.executors.celery_executor.app inspect ping -d "celery@$${HOSTNAME}"'
+        interval:                               10s
+        timeout:                                10s
+        retries:                                5
+      restart:                                  always
+
+  airflow-init:
+      <<:                                       *airflow-common
+      container_name:                           airflow-init
+      deploy:
+        resources:
+            limits:
+              cpus: "0.50"
+              memory: 256M
+      command:                                  version
+      environment:
+        <<:                                     *airflow-common-env
+        _AIRFLOW_DB_UPGRADE:                    'true'
+        _AIRFLOW_WWW_USER_CREATE:               'true'
+        _AIRFLOW_WWW_USER_USERNAME:             ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
+        _AIRFLOW_WWW_USER_PASSWORD:             ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
+
+
+volumes:
+  postgres-db-volume:
+

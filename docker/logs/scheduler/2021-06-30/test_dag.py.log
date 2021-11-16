@@ -1,0 +1,148 @@
+[2021-06-30 14:30:50,213] {scheduler_job.py:182} INFO - Started process (PID=6742) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:30:50,215] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:30:50,215] {logging_mixin.py:104} INFO - [2021-06-30 14:30:50,215] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:30:50,230] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:30:52,458] {logging_mixin.py:104} INFO - [2021-06-30 14:30:52,457] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:30:52,468] {logging_mixin.py:104} INFO - [2021-06-30 14:30:52,467] {dag.py:1851} INFO - Creating ORM DAG for cartelis-test
+[2021-06-30 14:30:52,474] {logging_mixin.py:104} INFO - [2021-06-30 14:30:52,473] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:30:52,485] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 2.275 seconds
+[2021-06-30 14:31:22,567] {scheduler_job.py:182} INFO - Started process (PID=6822) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:31:22,568] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:31:22,569] {logging_mixin.py:104} INFO - [2021-06-30 14:31:22,569] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:31:22,580] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:31:22,608] {logging_mixin.py:104} INFO - [2021-06-30 14:31:22,608] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:31:22,625] {logging_mixin.py:104} INFO - [2021-06-30 14:31:22,625] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:31:22,634] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.072 seconds
+[2021-06-30 14:31:52,693] {scheduler_job.py:182} INFO - Started process (PID=6896) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:31:52,694] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:31:52,695] {logging_mixin.py:104} INFO - [2021-06-30 14:31:52,695] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:31:52,706] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:31:52,729] {logging_mixin.py:104} INFO - [2021-06-30 14:31:52,728] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:31:52,742] {logging_mixin.py:104} INFO - [2021-06-30 14:31:52,742] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:31:52,751] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.062 seconds
+[2021-06-30 14:32:23,182] {scheduler_job.py:182} INFO - Started process (PID=6980) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:32:23,184] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:32:23,185] {logging_mixin.py:104} INFO - [2021-06-30 14:32:23,184] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:32:23,198] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:32:23,221] {logging_mixin.py:104} INFO - [2021-06-30 14:32:23,221] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:32:23,244] {logging_mixin.py:104} INFO - [2021-06-30 14:32:23,244] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:32:23,258] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.080 seconds
+[2021-06-30 14:32:53,334] {scheduler_job.py:182} INFO - Started process (PID=7046) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:32:53,335] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:32:53,336] {logging_mixin.py:104} INFO - [2021-06-30 14:32:53,336] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:32:53,345] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:32:53,363] {logging_mixin.py:104} INFO - [2021-06-30 14:32:53,363] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:32:53,377] {logging_mixin.py:104} INFO - [2021-06-30 14:32:53,377] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:32:53,385] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.056 seconds
+[2021-06-30 14:33:23,503] {scheduler_job.py:182} INFO - Started process (PID=7130) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:33:23,505] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:33:23,506] {logging_mixin.py:104} INFO - [2021-06-30 14:33:23,506] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:33:23,518] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:33:23,550] {logging_mixin.py:104} INFO - [2021-06-30 14:33:23,549] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:33:23,569] {logging_mixin.py:104} INFO - [2021-06-30 14:33:23,569] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:33:23,579] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.080 seconds
+[2021-06-30 14:33:53,972] {scheduler_job.py:182} INFO - Started process (PID=7197) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:33:53,974] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:33:53,975] {logging_mixin.py:104} INFO - [2021-06-30 14:33:53,974] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:33:53,984] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:33:54,009] {logging_mixin.py:104} INFO - [2021-06-30 14:33:54,009] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:33:54,024] {logging_mixin.py:104} INFO - [2021-06-30 14:33:54,023] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:33:54,034] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.065 seconds
+[2021-06-30 14:34:24,497] {scheduler_job.py:182} INFO - Started process (PID=7283) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:34:24,498] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:34:24,499] {logging_mixin.py:104} INFO - [2021-06-30 14:34:24,499] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:34:24,508] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:34:24,531] {logging_mixin.py:104} INFO - [2021-06-30 14:34:24,531] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:34:24,546] {logging_mixin.py:104} INFO - [2021-06-30 14:34:24,545] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:34:24,554] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.062 seconds
+[2021-06-30 14:34:55,299] {scheduler_job.py:182} INFO - Started process (PID=7349) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:34:55,300] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:34:55,300] {logging_mixin.py:104} INFO - [2021-06-30 14:34:55,300] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:34:55,310] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:34:55,332] {logging_mixin.py:104} INFO - [2021-06-30 14:34:55,332] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:34:55,346] {logging_mixin.py:104} INFO - [2021-06-30 14:34:55,346] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:34:55,356] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.061 seconds
+[2021-06-30 14:35:25,493] {scheduler_job.py:182} INFO - Started process (PID=7432) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:35:25,494] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:35:25,495] {logging_mixin.py:104} INFO - [2021-06-30 14:35:25,495] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:35:25,507] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:35:25,533] {logging_mixin.py:104} INFO - [2021-06-30 14:35:25,533] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:35:25,548] {logging_mixin.py:104} INFO - [2021-06-30 14:35:25,548] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:35:25,560] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.071 seconds
+[2021-06-30 14:35:55,679] {scheduler_job.py:182} INFO - Started process (PID=7510) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:35:55,680] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:35:55,681] {logging_mixin.py:104} INFO - [2021-06-30 14:35:55,681] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:35:55,695] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:35:55,717] {logging_mixin.py:104} INFO - [2021-06-30 14:35:55,717] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:35:55,732] {logging_mixin.py:104} INFO - [2021-06-30 14:35:55,732] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:35:55,742] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.069 seconds
+[2021-06-30 14:36:26,063] {scheduler_job.py:182} INFO - Started process (PID=7584) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:36:26,064] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:36:26,065] {logging_mixin.py:104} INFO - [2021-06-30 14:36:26,065] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:36:26,077] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:36:26,097] {logging_mixin.py:104} INFO - [2021-06-30 14:36:26,097] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:36:26,114] {logging_mixin.py:104} INFO - [2021-06-30 14:36:26,114] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:36:26,123] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.065 seconds
+[2021-06-30 14:36:56,152] {scheduler_job.py:182} INFO - Started process (PID=7661) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:36:56,154] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:36:56,155] {logging_mixin.py:104} INFO - [2021-06-30 14:36:56,155] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:36:56,171] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:36:56,214] {logging_mixin.py:104} INFO - [2021-06-30 14:36:56,214] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:36:56,234] {logging_mixin.py:104} INFO - [2021-06-30 14:36:56,234] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:36:56,252] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.104 seconds
+[2021-06-30 14:37:26,504] {scheduler_job.py:182} INFO - Started process (PID=7735) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:37:26,504] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:37:26,505] {logging_mixin.py:104} INFO - [2021-06-30 14:37:26,505] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:37:26,514] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:37:26,537] {logging_mixin.py:104} INFO - [2021-06-30 14:37:26,537] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:37:26,551] {logging_mixin.py:104} INFO - [2021-06-30 14:37:26,551] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:37:26,561] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.060 seconds
+[2021-06-30 14:37:56,943] {scheduler_job.py:182} INFO - Started process (PID=7818) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:37:56,945] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:37:56,946] {logging_mixin.py:104} INFO - [2021-06-30 14:37:56,946] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:37:56,959] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:37:56,983] {logging_mixin.py:104} INFO - [2021-06-30 14:37:56,983] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:37:56,998] {logging_mixin.py:104} INFO - [2021-06-30 14:37:56,998] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:37:57,010] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.071 seconds
+[2021-06-30 14:38:27,055] {scheduler_job.py:182} INFO - Started process (PID=7883) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:38:27,056] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:38:27,056] {logging_mixin.py:104} INFO - [2021-06-30 14:38:27,056] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:38:27,067] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:38:27,092] {logging_mixin.py:104} INFO - [2021-06-30 14:38:27,092] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:38:27,108] {logging_mixin.py:104} INFO - [2021-06-30 14:38:27,108] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:38:27,117] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.066 seconds
+[2021-06-30 14:38:57,353] {scheduler_job.py:182} INFO - Started process (PID=7967) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:38:57,354] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:38:57,355] {logging_mixin.py:104} INFO - [2021-06-30 14:38:57,355] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:38:57,365] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:38:57,389] {logging_mixin.py:104} INFO - [2021-06-30 14:38:57,389] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:38:57,411] {logging_mixin.py:104} INFO - [2021-06-30 14:38:57,410] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:38:57,420] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.071 seconds
+[2021-06-30 14:39:28,008] {scheduler_job.py:182} INFO - Started process (PID=8033) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:39:28,009] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:39:28,010] {logging_mixin.py:104} INFO - [2021-06-30 14:39:28,010] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:39:28,020] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:39:28,045] {logging_mixin.py:104} INFO - [2021-06-30 14:39:28,045] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:39:28,059] {logging_mixin.py:104} INFO - [2021-06-30 14:39:28,059] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:39:28,068] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.064 seconds
+[2021-06-30 14:39:58,800] {scheduler_job.py:182} INFO - Started process (PID=8117) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:39:58,801] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:39:58,802] {logging_mixin.py:104} INFO - [2021-06-30 14:39:58,802] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:39:58,814] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:39:58,836] {logging_mixin.py:104} INFO - [2021-06-30 14:39:58,836] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:39:58,851] {logging_mixin.py:104} INFO - [2021-06-30 14:39:58,851] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:39:58,860] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.064 seconds
+[2021-06-30 14:40:29,786] {scheduler_job.py:182} INFO - Started process (PID=8195) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:40:29,787] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:40:29,788] {logging_mixin.py:104} INFO - [2021-06-30 14:40:29,788] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:40:29,804] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:40:29,836] {logging_mixin.py:104} INFO - [2021-06-30 14:40:29,836] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:40:29,857] {logging_mixin.py:104} INFO - [2021-06-30 14:40:29,857] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:40:29,869] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.087 seconds
+[2021-06-30 14:41:00,351] {scheduler_job.py:182} INFO - Started process (PID=8268) to work on /opt/airflow/dags/test_dag.py
+[2021-06-30 14:41:00,353] {scheduler_job.py:633} INFO - Processing file /opt/airflow/dags/test_dag.py for tasks to queue
+[2021-06-30 14:41:00,354] {logging_mixin.py:104} INFO - [2021-06-30 14:41:00,354] {dagbag.py:487} INFO - Filling up the DagBag from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:41:00,364] {scheduler_job.py:643} INFO - DAG(s) dict_keys(['cartelis-test']) retrieved from /opt/airflow/dags/test_dag.py
+[2021-06-30 14:41:00,385] {logging_mixin.py:104} INFO - [2021-06-30 14:41:00,385] {dag.py:1832} INFO - Sync 1 DAGs
+[2021-06-30 14:41:00,399] {logging_mixin.py:104} INFO - [2021-06-30 14:41:00,399] {dag.py:2305} INFO - Setting next_dagrun for cartelis-test to 2021-06-28 00:00:00+00:00
+[2021-06-30 14:41:00,408] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/test_dag.py took 0.061 seconds

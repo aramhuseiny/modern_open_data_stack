@@ -1,4 +1,7 @@
-u  # Integration tool based on open-source data management frameworks
+# Cartelis
+Cartelis is an operational data & CRM consulting firm. We improve marketing ROI and streamline the customer's digital journey. We work with our clients to first design and implement martech solutions and then help them capitalize on their data to prioritize impactful marketing actions.
+
+# Integration tool based on open-source data management frameworks
 Designed to be self-sufficient in a local or remote machine ( limited to Ubuntu 18.04 as of 30/06/2021), this project brings together best-of-breed open-source frameworks in order to provide automated data migration, hosting, and transformation features in a single consolidated and fully customizable tool. Specifically, it currently puts to use:
 - Airflow: to orchestrate and automate the entire data pipeline
 - Airbyte: to integrate data, relying on a growing set of connectors

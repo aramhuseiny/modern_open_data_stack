@@ -1,3 +1,8 @@
 apache-airflow
 airflow-dbt
-apache-airflow-providers-airbyte
+apache-airflow-providers-airbyte==3.5.0
+apache-airflow-providers-microsoft-mssql==3.6.0
+apache-airflow-providers-mysql==5.5.0
+apache-airflow-providers-slack==8.5.0
+apache-airflow-providers-sqlite==3.6.0
+apache-airflow-providers-ssh==3.9.0

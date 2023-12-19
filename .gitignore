@@ -1,1 +1,2 @@
 *.log
+/docker/logs/scheduler/latest

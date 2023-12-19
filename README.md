@@ -16,9 +16,9 @@ Designed to be self-sufficient in a local or remote machine ( limited to Ubuntu 
 
 ## Requirements
 An objective of this project is to avoid version conflicts due to the rapidly evolving nature of these open-source frameworks, so the tool is designed to rely on specific versions of each software package:
-- Airflow:2.1.0
-- Airbyte:0.26.4
-- DBT:0.19.0
+- Airflow:2.7.3
+- Airbyte:0.50.38
+- DBT:1.7.4
 - PostgreSQL:13
 
 ## Setup
@@ -29,8 +29,8 @@ Once the build has terminated:
 - List the docker containers running: `sudo docker ps`
 - Find the container named airflow-worker and run: `sudo docker exec -it <container ID> /bin/bash`
 Inside the docker container:
-- Check if dbt is installed (not fully working as of 28/07/2021): `dbt --version`
-- If an error is returned, run: `pip install dbt==0.19.0`
+- Check if dbt is installed (not fully working as of 19/12/2023): `dbt --version`
+- If an error is returned, run: `pip install dbt==1.7.4`
 
 ## Connections
 * Airflow webserver UI: localhost:8080

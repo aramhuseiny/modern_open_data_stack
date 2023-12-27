@@ -3,6 +3,29 @@ This repository is a fork of `Nicolas Roux`'s package. You can see the base back
 
 Ref: https://gitlab.com/nicolas217/modern-open-source-data-stack
 
+# Login Information
+
+## Airflow
+  URL: `https://localhost:8080`
+
+  Username: `airflow`
+
+  password: `airflow`
+
+
+## Airbyte
+  URL: `https://localhost:8000`
+
+  Username: `airbyte`
+
+  password: `password`
+
+## Superset
+  URL: `https://localhost:8088`
+
+  Username: `admin`
+
+  password: `admin`
 
 # Cartelis
 Cartelis is an operational data & CRM consulting firm. We improve marketing ROI and streamline the customer's digital journey. We work with our clients to first design and implement martech solutions and then help them capitalize on their data to prioritize impactful marketing actions.

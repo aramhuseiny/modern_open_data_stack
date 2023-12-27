@@ -528,6 +528,20 @@ services:
     healthcheck:
       disable: true
 
+
+  # SQL server 
+
+  mssql_db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: oltp_initial_msqql_db
+    ports:
+        - 1433:1433
+    environment:
+            SA_PASSWORD: "Apadanadev@1"
+            ACCEPT_EULA: "Y"
+    volumes:
+      - ./mssql/AdventureWorks2022.bak:/mnt/AdventureWorks2022.bak
+
 volumes:
   workspace:
      name:                                      ${WORKSPACE_DOCKER_MOUNT}

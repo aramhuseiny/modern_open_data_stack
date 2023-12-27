@@ -22,16 +22,27 @@ x-airflow-common:                               &airflow-common
     AIRFLOW__CORE__LOAD_EXAMPLES:               'true'
     AIRFLOW__API__AUTH_BACKEND:                 'airflow.api.auth.backend.basic_auth'
   volumes:
-    - ./dags:/opt/airflow/dags
-    - ./logs:/opt/airflow/logs
-    - ./plugins:/opt/airflow/plugins
-    - ./dbt:/opt/airflow/dbt
+    - ./airflow/dags:/opt/airflow/dags
+    - ./airflow/logs:/opt/airflow/logs
+    - ./airflow/plugins:/opt/airflow/plugins
+    - ./airflow/dbt:/opt/airflow/dbt
   user:                                         "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"
   depends_on:
     redis:
       condition:                                service_healthy
     postgres:
       condition:                                service_healthy
+
+
+# Superset extenstion
+x-superset-image: &superset-image apachesuperset.docker.scarf.sh/apache/superset:${TAG:-latest-dev}
+x-superset-depends-on: &superset-depends-on
+  - db
+  - redis
+x-superset-volumes:
+  &superset-volumes # /app/pythonpath_docker will be appended to the PYTHONPATH in the final container
+  - ./superset/docker:/app/docker
+  - superset_home:/app/superset_home
 
 services:
   # Airbyte services
@@ -211,7 +222,7 @@ services:
       - workspace:${WORKSPACE_ROOT}
       - data:${CONFIG_ROOT}
       - ${LOCAL_ROOT}:${LOCAL_ROOT}
-      - ./configs:/app/configs:ro
+      - ./airbyte/configs:/app/configs:ro
     networks:
       - airbyte_internal
     depends_on:
@@ -246,7 +257,7 @@ services:
       - POSTGRES_SEEDS=${DATABASE_HOST}
       - POSTGRES_USER=${DATABASE_USER}
     volumes:
-      - ./temporal/dynamicconfig:/etc/temporal/config/dynamicconfig
+      - ./airbyte/temporal/dynamicconfig:/etc/temporal/config/dynamicconfig
     networks:
       - airbyte_internal
   airbyte-cron:
@@ -343,6 +354,8 @@ services:
       - server
       - airbyte-api-server
 
+# Airflow services
+
 # Backend database
   postgres:
       image:                                    postgres:13
@@ -365,7 +378,6 @@ services:
       ports:
               - 5400:5432
 
-  # Airflow services
   redis:
       image:                                    redis:latest
       container_name:                           airflow-redis
@@ -447,6 +459,75 @@ services:
         _AIRFLOW_WWW_USER_USERNAME:             ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
         _AIRFLOW_WWW_USER_PASSWORD:             ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
 
+  #Superset services
+  superset_redis:
+    image: redis:latest
+    container_name: superset_cache
+    restart: unless-stopped
+    volumes:
+      - superset_redis:/data
+
+  superset_db:
+    env_file: ./superset/docker/.env-non-dev
+    image: postgres:15
+    container_name: superset_db
+    restart: unless-stopped
+    volumes:
+      - superset_db_home:/var/lib/postgresql/data
+      - ./superset/docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+  superset:
+    env_file: ./superset/docker/.env-non-dev
+    image: *superset-image
+    container_name: superset_app
+    command: ["/app/docker/docker-bootstrap.sh", "app-gunicorn"]
+    user: "root"
+    restart: unless-stopped
+    ports:
+      - 8088:8088
+    depends_on: *superset-depends-on
+    volumes: *superset-volumes
+
+  
+  superset-init:
+    image: *superset-image
+    container_name: superset_init
+    command: ["/app/docker/docker-init.sh"]
+    env_file: ./superset/docker/.env-non-dev
+    depends_on: *superset-depends-on
+    user: "root"
+    volumes: *superset-volumes
+    healthcheck:
+      disable: true
+  
+  superset-worker:
+    image: *superset-image
+    container_name: superset_worker
+    command: ["/app/docker/docker-bootstrap.sh", "worker"]
+    env_file: ./superset/docker/.env-non-dev
+    restart: unless-stopped
+    depends_on: *superset-depends-on
+    user: "root"
+    volumes: *superset-volumes
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "celery -A superset.tasks.celery_app:app inspect ping -d celery@$$HOSTNAME",
+        ]
+
+  superset-worker-beat:
+    image: *superset-image
+    container_name: superset_worker_beat
+    command: ["/app/docker/docker-bootstrap.sh", "beat"]
+    env_file: ./superset/docker/.env-non-dev
+    restart: unless-stopped
+    depends_on: *superset-depends-on
+    user: "root"
+    volumes: *superset-volumes
+    healthcheck:
+      disable: true
+
 volumes:
   workspace:
      name:                                      ${WORKSPACE_DOCKER_MOUNT}
@@ -455,6 +536,12 @@ volumes:
   db:
      name:                                      ${DB_DOCKER_MOUNT}
   postgres-db-volume:
+  superset_home:
+    external: false
+  superset_db_home:
+    external: false
+  superset_redis:
+    external: false
 configs:
   flags:
     file: ./flags.yml

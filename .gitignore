@@ -1,2 +1,3 @@
 *.log
-/docker/logs/scheduler/latest
+docker/airflow/logs/
+docker/airflow/dags/__pycache__/

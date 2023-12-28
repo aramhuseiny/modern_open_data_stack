@@ -92,6 +92,7 @@ services:
       - db:/var/lib/postgresql/data
     networks:
       - airbyte_internal
+
   worker:
     image: airbyte/worker:${VERSION}
     logging: *default-logging
@@ -349,6 +350,7 @@ services:
     networks:
       - airbyte_internal
       - airbyte_public
+      - general_stack
     depends_on:
       - webapp
       - server
@@ -369,7 +371,7 @@ services:
         POSTGRES_PASSWORD:                      airflow
         POSTGRES_DB:                            airflow
       volumes:
-        - postgres-db-volume:/var/lib/postgresql/data
+        - airflow-postgres-db-volume:/var/lib/postgresql/data
       healthcheck:
         test:                                   ["CMD", "pg_isready", "-U", "airflow"]
         interval:                               5s
@@ -377,6 +379,8 @@ services:
       restart:                                  always
       ports:
               - 5400:5432
+      networks:
+        - airflow_internal
 
   redis:
       image:                                    redis:latest
@@ -389,7 +393,8 @@ services:
         timeout:                                30s
         retries:                                50
       restart:                                  always
-
+      networks:
+       - airbyte_internal
   airflow-webserver:
       <<:                                       *airflow-common
       container_name:                           airflow-webserver
@@ -406,7 +411,9 @@ services:
         interval:                               10s
         timeout:                                10s
         retries:                                5
-      restart:                                  always
+      restart:                                  always      
+      networks:
+        - airflow_internal
 
   airflow-scheduler:
       <<:                                       *airflow-common
@@ -423,6 +430,9 @@ services:
         timeout:                                10s
         retries:                                5
       restart:                                  always
+      networks:
+        - airflow_internal
+
 
   airflow-worker:
       <<:                                       *airflow-common
@@ -442,6 +452,8 @@ services:
         timeout:                                10s
         retries:                                5
       restart:                                  always
+      networks:
+        - airflow_internal
 
   airflow-init:
       <<:                                       *airflow-common
@@ -458,6 +470,8 @@ services:
         _AIRFLOW_WWW_USER_CREATE:               'true'
         _AIRFLOW_WWW_USER_USERNAME:             ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
         _AIRFLOW_WWW_USER_PASSWORD:             ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
+      networks:
+        - airflow_internal
 
   #Superset services
   superset_redis:
@@ -466,6 +480,8 @@ services:
     restart: unless-stopped
     volumes:
       - superset_redis:/data
+    networks:
+      - superset_internal
 
   superset_db:
     env_file: ./superset/docker/.env-non-dev
@@ -475,6 +491,8 @@ services:
     volumes:
       - superset_db_home:/var/lib/postgresql/data
       - ./superset/docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    networks:
+      - superset_internal
 
   superset:
     env_file: ./superset/docker/.env-non-dev
@@ -487,6 +505,8 @@ services:
       - 8088:8088
     depends_on: *superset-depends-on
     volumes: *superset-volumes
+    networks:
+      - superset_internal
 
   
   superset-init:
@@ -499,6 +519,8 @@ services:
     volumes: *superset-volumes
     healthcheck:
       disable: true
+    networks:
+      - superset_internal
   
   superset-worker:
     image: *superset-image
@@ -515,6 +537,8 @@ services:
           "CMD-SHELL",
           "celery -A superset.tasks.celery_app:app inspect ping -d celery@$$HOSTNAME",
         ]
+    networks:
+      - superset_internal
 
   superset-worker-beat:
     image: *superset-image
@@ -527,6 +551,8 @@ services:
     volumes: *superset-volumes
     healthcheck:
       disable: true
+    networks:
+      - superset_internal
 
 
   # SQL server 
@@ -541,6 +567,9 @@ services:
             ACCEPT_EULA: "Y"
     volumes:
       - ./mssql/AdventureWorks2022.bak:/mnt/AdventureWorks2022.bak
+    networks:
+      - airbyte_internal
+      - airbyte_public
 
 volumes:
   workspace:
@@ -549,7 +578,7 @@ volumes:
      name:                                      ${DATA_DOCKER_MOUNT}
   db:
      name:                                      ${DB_DOCKER_MOUNT}
-  postgres-db-volume:
+  airflow-postgres-db-volume:
   superset_home:
     external: false
   superset_db_home:
@@ -562,3 +591,6 @@ configs:
 networks:
   airbyte_public:
   airbyte_internal:
+  general_stack:
+  superset_internal:
+  airflow_internal:

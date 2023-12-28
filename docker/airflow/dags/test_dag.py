@@ -24,7 +24,6 @@ with DAG(
 
     sync_source_destination = AirbyteTriggerSyncOperator(
         task_id="airflow-airbyte-sync",
-        airbyte_conn_id="airflow-airbyte",
         connection_id="ab36289a-adf9-4626-a611-4e395931da38",
     )
 

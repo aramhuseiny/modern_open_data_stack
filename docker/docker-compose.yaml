@@ -19,8 +19,10 @@ x-airflow-common:                               &airflow-common
     AIRFLOW__CELERY__BROKER_URL:                redis://:@redis:6379/0
     AIRFLOW__CORE__FERNET_KEY:                  ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
-    AIRFLOW__CORE__LOAD_EXAMPLES:               'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES:               'false'
     AIRFLOW__API__AUTH_BACKEND:                 'airflow.api.auth.backend.basic_auth'
+    AIRFLOW__WEBSERVER__EXPOSE_CONFIG:          'true'
+    AIRFLOW__CORE__TEST_CONNECTION:             'Enabled'
   volumes:
     - ./airflow/dags:/opt/airflow/dags
     - ./airflow/logs:/opt/airflow/logs
@@ -70,7 +72,8 @@ services:
       - LOCAL_CONNECTOR_CATALOG_PATH=${LOCAL_CONNECTOR_CATALOG_PATH}
       - LOG_LEVEL=${LOG_LEVEL}
     networks:
-      - airbyte_internal
+      de-network:
+        ipv4_address: 10.5.10.1
     depends_on:
       init:
         condition: service_completed_successfully
@@ -91,7 +94,8 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
     networks:
-      - airbyte_internal
+      de-network:
+        ipv4_address: 10.5.10.2
 
   worker:
     image: airbyte/worker:${VERSION}
@@ -167,7 +171,8 @@ services:
     ports:
       - "9000"
     networks:
-      - airbyte_internal
+      de-network:
+        ipv4_address: 10.5.10.3
     depends_on:
       bootloader:
         condition: service_completed_successfully
@@ -225,7 +230,8 @@ services:
       - ${LOCAL_ROOT}:${LOCAL_ROOT}
       - ./airbyte/configs:/app/configs:ro
     networks:
-      - airbyte_internal
+      de-network:
+        ipv4_address: 10.5.10.4
     depends_on:
       bootloader:
         condition: service_completed_successfully
@@ -240,7 +246,8 @@ services:
       - TRACKING_STRATEGY=${TRACKING_STRATEGY}
       - KEYCLOAK_INTERNAL_HOST=localhost # placeholder to ensure the webapp's nginx config is valid
     networks:
-      - airbyte_internal
+      de-network:
+        ipv4_address: 10.5.10.5
     depends_on:
       bootloader:
         condition: service_completed_successfully
@@ -260,7 +267,8 @@ services:
     volumes:
       - ./airbyte/temporal/dynamicconfig:/etc/temporal/config/dynamicconfig
     networks:
-      - airbyte_internal
+      de-network:
+        ipv4_address: 10.5.10.6
   airbyte-cron:
     image: airbyte/cron:${VERSION}
     logging: *default-logging
@@ -291,7 +299,8 @@ services:
     volumes:
       - workspace:${WORKSPACE_ROOT}
     networks:
-      - airbyte_internal
+      de-network:
+        ipv4_address: 10.5.10.7
     depends_on:
       bootloader:
         condition: service_completed_successfully
@@ -311,7 +320,8 @@ services:
       - SEGMENT_WRITE_KEY=${SEGMENT_WRITE_KEY}
       - TRACKING_STRATEGY=${TRACKING_STRATEGY}
     networks:
-      - airbyte_internal
+      de-network:
+        ipv4_address: 10.5.10.8
     depends_on:
       bootloader:
         condition: service_completed_successfully
@@ -330,7 +340,8 @@ services:
       - SEGMENT_WRITE_KEY=${SEGMENT_WRITE_KEY}
       - TRACKING_STRATEGY=${TRACKING_STRATEGY}
     networks:
-      - airbyte_internal
+      de-network:
+        ipv4_address: 10.5.10.9
     depends_on:
       bootloader:
         condition: service_completed_successfully
@@ -348,9 +359,8 @@ services:
       - BASIC_AUTH_PASSWORD=${BASIC_AUTH_PASSWORD}
       - BASIC_AUTH_PROXY_TIMEOUT=${BASIC_AUTH_PROXY_TIMEOUT}
     networks:
-      - airbyte_internal
-      - airbyte_public
-      - general_stack
+      de-network:
+        ipv4_address: 10.5.10.10
     depends_on:
       - webapp
       - server
@@ -380,7 +390,8 @@ services:
       ports:
               - 5400:5432
       networks:
-        - airflow_internal
+        de-network:
+          ipv4_address: 10.5.20.1
 
   redis:
       image:                                    redis:latest
@@ -394,7 +405,8 @@ services:
         retries:                                50
       restart:                                  always
       networks:
-       - airbyte_internal
+        de-network:
+          ipv4_address: 10.5.20.2
   airflow-webserver:
       <<:                                       *airflow-common
       container_name:                           airflow-webserver
@@ -413,7 +425,8 @@ services:
         retries:                                5
       restart:                                  always      
       networks:
-        - airflow_internal
+        de-network:
+          ipv4_address: 10.5.20.3
 
   airflow-scheduler:
       <<:                                       *airflow-common
@@ -431,7 +444,8 @@ services:
         retries:                                5
       restart:                                  always
       networks:
-        - airflow_internal
+        de-network:
+          ipv4_address: 10.5.20.4
 
 
   airflow-worker:
@@ -453,7 +467,8 @@ services:
         retries:                                5
       restart:                                  always
       networks:
-        - airflow_internal
+        de-network:
+          ipv4_address: 10.5.20.5
 
   airflow-init:
       <<:                                       *airflow-common
@@ -471,7 +486,8 @@ services:
         _AIRFLOW_WWW_USER_USERNAME:             ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
         _AIRFLOW_WWW_USER_PASSWORD:             ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
       networks:
-        - airflow_internal
+        de-network:
+          ipv4_address: 10.5.20.6
 
   #Superset services
   superset_redis:
@@ -481,7 +497,8 @@ services:
     volumes:
       - superset_redis:/data
     networks:
-      - superset_internal
+        de-network:
+          ipv4_address: 10.5.30.1
 
   superset_db:
     env_file: ./superset/docker/.env-non-dev
@@ -492,7 +509,8 @@ services:
       - superset_db_home:/var/lib/postgresql/data
       - ./superset/docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     networks:
-      - superset_internal
+        de-network:
+          ipv4_address: 10.5.30.2
 
   superset:
     env_file: ./superset/docker/.env-non-dev
@@ -506,7 +524,8 @@ services:
     depends_on: *superset-depends-on
     volumes: *superset-volumes
     networks:
-      - superset_internal
+        de-network:
+          ipv4_address: 10.5.30.3
 
   
   superset-init:
@@ -520,7 +539,8 @@ services:
     healthcheck:
       disable: true
     networks:
-      - superset_internal
+        de-network:
+          ipv4_address: 10.5.30.4
   
   superset-worker:
     image: *superset-image
@@ -538,7 +558,8 @@ services:
           "celery -A superset.tasks.celery_app:app inspect ping -d celery@$$HOSTNAME",
         ]
     networks:
-      - superset_internal
+        de-network:
+          ipv4_address: 10.5.30.5
 
   superset-worker-beat:
     image: *superset-image
@@ -552,7 +573,8 @@ services:
     healthcheck:
       disable: true
     networks:
-      - superset_internal
+        de-network:
+          ipv4_address: 10.5.30.6
 
 
   # SQL server 
@@ -567,9 +589,30 @@ services:
             ACCEPT_EULA: "Y"
     volumes:
       - ./mssql/AdventureWorks2022.bak:/mnt/AdventureWorks2022.bak
+      # - ./mssql/data/mssql_data:/var/opt/mssql/data
+      # - ./mssql/data/mssql_log:/var/opt/mssql/log
+      # - ./mssql/data/mssql_secrets:/var/opt/mssql/secrets
     networks:
-      - airbyte_internal
-      - airbyte_public
+        de-network:
+          ipv4_address: 10.5.40.1
+
+  
+  staging_dwh_db:
+    image: postgres:15
+    container_name: staging_dwh
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: staging
+      POSTGRES_PASSWORD: Apadanadev@1
+      POSTGRES_DB: staging
+    ports:
+      - "45432:5432"
+    volumes:
+      - staging_dwh_db:/var/lib/postgresql/data
+    networks:
+      de-network:
+          ipv4_address: 10.5.40.2
+
 
 volumes:
   workspace:
@@ -585,12 +628,18 @@ volumes:
     external: false
   superset_redis:
     external: false
+  staging_dwh_db:
+  mssql_log:
+  mssql_data:
+  mssql_secrets:
 configs:
   flags:
     file: ./flags.yml
 networks:
-  airbyte_public:
-  airbyte_internal:
-  general_stack:
-  superset_internal:
-  airflow_internal:
+  de-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "10.5.0.0/16"
+          gateway: 10.5.0.1

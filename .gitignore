@@ -3,3 +3,4 @@ docker/airflow/logs/
 docker/airflow/dags/__pycache__/
 docker/logs/scheduler/*
 docker/mssql/AdventureWorks2022.bak
+docker/mssql/data/*

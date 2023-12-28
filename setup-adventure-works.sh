@@ -1,4 +1,5 @@
 # #!/bin/bash
+sudo chmod -R 777 ./
 cd docker/mssql
 if [ ! -f AdventureWorks2022.bak ]
 then

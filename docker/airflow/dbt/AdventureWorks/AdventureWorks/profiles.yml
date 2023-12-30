@@ -1,0 +1,13 @@
+AdventureWorks:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: 10.5.40.2
+      user: staging
+      password: Apadanadev@1
+      port: 5432
+      dbname: staging
+      schema: public
+      threads: 4
+      keepalives_idle: 0 # default 0, indicating the system default

@@ -1,1 +1,1 @@
-select count(*) from diamonds_test group by cut
+select count(*) from customer 

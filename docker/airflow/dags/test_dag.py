@@ -6,6 +6,7 @@ from airflow import DAG
 from airflow.providers.airbyte.operators.airbyte import AirbyteTriggerSyncOperator
 from airflow.providers.airbyte.sensors.airbyte import AirbyteJobSensor
 from airflow_dbt.operators.dbt_operator import DbtRunOperator
+from airflow.operators.bash import BashOperator
 
 default_args = {
     "owner": "airflow",
@@ -24,10 +25,13 @@ with DAG(
 
     sync_source_destination = AirbyteTriggerSyncOperator(
         task_id="airflow-airbyte-sync",
-        connection_id="ab36289a-adf9-4626-a611-4e395931da38",
+        airbyte_conn_id='airflow-airbyte-connection',
+        connection_id="1d5e1e49-6c25-4075-95ca-236df84f9d54",
     )
 
-    dbt_run = DbtRunOperator(
+    dbt_run = BashOperator(
         task_id="dbt_run",
+        bash_command="cd /opt/airflow/dbt/AdventureWorks/AdventureWorks/ && dbt run",
+        dag=dag
     )
     sync_source_destination >> dbt_run

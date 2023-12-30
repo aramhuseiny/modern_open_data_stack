@@ -1,4 +1,4 @@
-{{ config(alias = 'customers', materialized='table') }}
+{{ config(alias = 'customers', materialized='view') }}
 
 WITH source
 AS (

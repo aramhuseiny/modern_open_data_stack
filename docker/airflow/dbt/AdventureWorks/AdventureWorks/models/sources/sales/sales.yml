@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: sales
-    schema: public
+    schema: raw
     tables:
       - name: countryregioncurrency
       - name: creditcard

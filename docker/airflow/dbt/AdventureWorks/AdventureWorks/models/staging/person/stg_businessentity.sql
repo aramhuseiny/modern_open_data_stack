@@ -1,11 +1,9 @@
-{{ config(alias = 'stg_personcreditcard', materialized='table') }}
-
 with source as (
-      select * from {{ source('sales', 'personcreditcard') }}
+      select * from {{ source('person', 'businessentity') }}
 ),
 renamed as (
     select
-        {{ adapter.quote("creditcardid") }},
+        {{ adapter.quote("rowguid") }},
         {{ adapter.quote("modifieddate") }},
         {{ adapter.quote("businessentityid") }}
 

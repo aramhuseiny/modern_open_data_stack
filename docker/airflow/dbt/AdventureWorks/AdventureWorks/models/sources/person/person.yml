@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: person
+    schema: raw
+    tables:
+      - name: address
+      - name: addresstype
+      - name: businessentity
+      - name: businessentityaddress
+      - name: businessentitycontact
+      - name: contacttype
+      - name: countryregion
+      - name: emailaddress
+      - name: person
+      - name: personphone
+      - name: phonenumbertype
+      - name: stateprovince

@@ -26,13 +26,13 @@ with DAG(
     sync_sale_data = AirbyteTriggerSyncOperator(
         task_id="sale_data-sync",
         airbyte_conn_id='airflow-airbyte-connection',
-        connection_id="1d5e1e49-6c25-4075-95ca-236df84f9d54",
+        connection_id="be033336-db0a-4027-a7b1-0fa0abb8dbb7",
     )
 
     sync_person_data = AirbyteTriggerSyncOperator(
         task_id="person_data-sync",
         airbyte_conn_id='airflow-airbyte-connection',
-        connection_id="0994fb9b-dc18-4553-9ffb-d9dab7155adf",
+        connection_id="b8f24a42-5ef8-4a99-9a1b-fcaec8fbf07e",
     )
     
     dbt_run = BashOperator(
@@ -40,4 +40,4 @@ with DAG(
         bash_command="cd /opt/airflow/dbt/AdventureWorks/AdventureWorks/ && dbt run",
         dag=dag
     )
-    sync_person_data >> sync_sale_data >> dbt_run
+    [sync_person_data, sync_sale_data] >> dbt_run

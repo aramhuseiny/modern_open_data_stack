@@ -583,7 +583,7 @@ services:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: oltp_initial_msqql_db
     ports:
-        - 1433:1433
+        - 1403:1433
     environment:
             SA_PASSWORD: "Apadanadev@1"
             ACCEPT_EULA: "Y"

@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: human_resources
+    schema: raw
+    tables:
+      - name: department
+      - name: employee
+      - name: employeedepartmenthistory
+      - name: employeepayhistory
+      - name: jobcandidate
+      - name: shift

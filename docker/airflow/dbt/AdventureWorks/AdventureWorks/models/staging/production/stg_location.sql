@@ -6,11 +6,11 @@ with source as (
 renamed as (
     select
 
-        {{ adapter.quote("Name") }},
-        {{ adapter.quote("costrate") }},
-        {{ adapter.quote("locationid") }} as locationkey,
-        {{ adapter.quote("availability") }},
-        {{ adapter.quote("modifieddate") }}
+        "Name" as location_name,
+        costrate,
+        locationid as location_key,
+        availability,
+        modifieddate as modified_date
 
     from source
 )

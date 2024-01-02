@@ -7,20 +7,20 @@ renamed as (
     select
 
 
-        {{ adapter.quote("documentnode") }},
-        {{ adapter.quote("documentlevel") }},
-        {{ adapter.quote("title") }},
-        {{ adapter.quote("Owner") }},
-        {{ adapter.quote("folderflag") }},
-        {{ adapter.quote("filename") }},
-        {{ adapter.quote("fileextension") }},
-        {{ adapter.quote("revision") }},
-        {{ adapter.quote("changenumber") }},
-        {{ adapter.quote("status") }},
-        {{ adapter.quote("documentsummary") }},
-        {{ adapter.quote("Document") }},
-        {{ adapter.quote("rowguid") }},
-        {{ adapter.quote("modifieddate") }}
+        documentnode as document_node,
+        documentlevel as document_level,
+        title,
+        "Owner" as document_owner,
+        folderflag as folder_flag,
+        filename as file_name,
+        fileextension as file_extension,
+        revision,
+        changenumber as change_number,
+        status,
+        documentsummary as document_summary,
+        "Document" as document,
+        rowguid,
+        modifieddate as modfied_date
 
     from source
 )

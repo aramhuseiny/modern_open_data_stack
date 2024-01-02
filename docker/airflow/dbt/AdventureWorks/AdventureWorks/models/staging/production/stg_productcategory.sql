@@ -6,10 +6,10 @@ with source as (
 renamed as (
     select
 
-        {{ adapter.quote("Name") }},
-        {{ adapter.quote("rowguid") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("productcategoryid") }} as productcategorykey
+        "Name" as product_category_name,
+        rowguid,
+        modifieddate as modified_date,
+        productcategoryid as product_category_key
     from source
 )
 select * from renamed

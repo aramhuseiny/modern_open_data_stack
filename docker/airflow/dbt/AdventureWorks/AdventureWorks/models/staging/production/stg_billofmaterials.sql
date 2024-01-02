@@ -6,15 +6,15 @@ with source as (
 renamed as (
     select
 
-        {{ adapter.quote("billofmaterialsid") }} as bill_of_materials_key,
-        {{ adapter.quote("productassemblyid") }} as product_assembly_key,
-        {{ adapter.quote("componentid") }} as component_key,
-        {{ adapter.quote("startdate") }} as start_date,
-        {{ adapter.quote("enddate") }} as end_date,
-        {{ adapter.quote("unitmeasurecode") }} as unit_measure_code,
-        {{ adapter.quote("bomlevel") }} as bom_level,
-        {{ adapter.quote("perassemblyqty") }} as perassembly_qty,
-        {{ adapter.quote("modifieddate") }} as modified_date
+        billofmaterialsid as bill_of_materials_key,
+        productassemblyid as product_assembly_key,
+        componentid as component_key,
+        startdate as start_date,
+        enddate as end_date,
+        unitmeasurecode as unit_measure_code,
+        bomlevel as bom_level,
+        perassemblyqty as perassembly_qty,
+        modifieddate as modified_date
 
     from source
 )

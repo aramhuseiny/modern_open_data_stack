@@ -6,11 +6,9 @@ with source as (
 renamed as (
     select
 
-
-
-        {{ adapter.quote("cultureid") }},
-        {{ adapter.quote("Name") }},
-        {{ adapter.quote("modifieddate") }}
+        cultureid as culture_key,
+        "Name" as culture_name,
+        modifieddate as modified_date
 
     from source
 )

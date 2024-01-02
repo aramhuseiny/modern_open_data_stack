@@ -6,9 +6,9 @@ with source as (
 renamed as (
     select
 
-        {{ adapter.quote("diagram") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("illustrationid") }}
+        diagram,
+        modifieddate as modified_date,
+        illustrationid as illustration_key
 
     from source
 )

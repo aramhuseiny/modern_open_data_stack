@@ -34,10 +34,30 @@ with DAG(
         airbyte_conn_id='airflow-airbyte-connection',
         connection_id="b8f24a42-5ef8-4a99-9a1b-fcaec8fbf07e",
     )
+        
+    sync_human_resource_data = AirbyteTriggerSyncOperator(
+        task_id="human_resource_data-sync",
+        airbyte_conn_id='airflow-airbyte-connection',
+        connection_id="d589e6b8-954e-4fc7-bb93-ae35f875eddb",
+    )    
+    
+    sync_production_data = AirbyteTriggerSyncOperator(
+        task_id="production_data-sync",
+        airbyte_conn_id='airflow-airbyte-connection',
+        connection_id="e524664d-7765-44e6-b023-f7b170e0c6ef",
+    )
+    
+    sync_purchasing_data = AirbyteTriggerSyncOperator(
+        task_id="purchasing_data-sync",
+        airbyte_conn_id='airflow-airbyte-connection',
+        connection_id="a7d1429b-0841-4d19-96b0-e12e4e4288ea",
+    )
+    
+    
     
     dbt_run = BashOperator(
         task_id="dbt_run",
         bash_command="cd /opt/airflow/dbt/AdventureWorks/AdventureWorks/ && dbt run",
         dag=dag
     )
-    [sync_person_data, sync_sale_data] >> dbt_run
+    [sync_person_data, sync_sale_data, sync_human_resource_data, sync_production_data, sync_purchasing_data] >> dbt_run

@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: production
+    schema: raw
+    tables:
+      - name: billofmaterials
+      - name: culture
+      - name: Document
+      - name: illustration
+      - name: Location
+      - name: product
+      - name: productcategory
+      - name: productcosthistory
+      - name: productdescription
+      - name: productdocument
+      - name: productinventory
+      - name: productlistpricehistory
+      - name: productmodel
+      - name: productmodelillustration
+      - name: productmodelproductdescriptionculture
+      - name: productphoto
+      - name: productproductphoto
+      - name: productreview
+      - name: productsubcategory
+      - name: scrapreason
+      - name: transactionhistory
+      - name: transactionhistoryarchive
+      - name: unitmeasure
+      - name: workorder
+      - name: workorderrouting

@@ -3,9 +3,9 @@ with source as (
 ),
 renamed as (
     select
-        {{ adapter.quote("rowguid") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("businessentityid") }}
+        rowguid,
+        modifieddate as modified_date,
+        businessentityid as business_entity_key
 
     from source
 )

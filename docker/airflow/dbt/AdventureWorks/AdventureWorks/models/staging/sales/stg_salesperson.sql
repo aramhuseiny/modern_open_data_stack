@@ -5,15 +5,15 @@ with source as (
 ),
 renamed as (
     select
-        {{ adapter.quote("bonus") }},
-        {{ adapter.quote("rowguid") }},
-        {{ adapter.quote("salesytd") }},
-        {{ adapter.quote("salesquota") }},
-        {{ adapter.quote("territoryid") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("commissionpct") }},
-        {{ adapter.quote("saleslastyear") }},
-        {{ adapter.quote("businessentityid") }}
+        bonus,
+        rowguid,
+        salesytd as sales_ytd,
+        salesquota as sales_quota,
+        territoryid as territory_key,
+        modifieddate as modified_date,
+        commissionpct as commission_pct,
+        saleslastyear as sales_last_year,
+        businessentityid as business_entity_key
 
     from source
 )

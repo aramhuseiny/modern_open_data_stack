@@ -3,14 +3,14 @@ with source as (
 ),
 renamed as (
     select
-        {{ adapter.quote("Name") }},
-        {{ adapter.quote("rowguid") }},
-        {{ adapter.quote("territoryid") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("stateprovinceid") }},
-        {{ adapter.quote("countryregioncode") }},
-        {{ adapter.quote("stateprovincecode") }},
-        {{ adapter.quote("isonlystateprovinceflag") }}
+        "Name" as state_province_name,
+        rowguid,
+        territoryid as territory_key,
+        modifieddate as modified_date,
+        stateprovinceid as state_province_key,
+        countryregioncode as country_region_code,
+        stateprovincecode as state_province_code,
+        isonlystateprovinceflag as is_only_state_province_flag
 
     from source
 )

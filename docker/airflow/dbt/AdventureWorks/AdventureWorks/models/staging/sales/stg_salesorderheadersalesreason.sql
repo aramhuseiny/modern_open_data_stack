@@ -5,9 +5,9 @@ with source as (
 ),
 renamed as (
     select
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("salesorderid") }},
-        {{ adapter.quote("salesreasonid") }}
+        modifieddate as modified_date,
+        salesorderid as sales_order_key,
+        salesreasonid as sales_reason_key
 
     from source
 )

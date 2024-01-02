@@ -3,9 +3,9 @@ with source as (
 ),
 renamed as (
     select
-        {{ adapter.quote("Name") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("countryregioncode") }}
+        "Name" as country_region_name,
+        modifieddate as modified_date,
+        countryregioncode as country_region_code
 
     from source
 )

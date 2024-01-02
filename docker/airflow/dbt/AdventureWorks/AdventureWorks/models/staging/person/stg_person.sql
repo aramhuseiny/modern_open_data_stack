@@ -3,19 +3,19 @@ with source as (
 ),
 renamed as (
     select
-        {{ adapter.quote("title") }},
-        {{ adapter.quote("suffix") }},
-        {{ adapter.quote("rowguid") }},
-        {{ adapter.quote("lastname") }},
-        {{ adapter.quote("firstname") }},
-        {{ adapter.quote("namestyle") }},
-        {{ adapter.quote("middlename") }},
-        {{ adapter.quote("persontype") }},
-        {{ adapter.quote("demographics") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("emailpromotion") }},
-        {{ adapter.quote("businessentityid") }},
-        {{ adapter.quote("additionalcontactinfo") }}
+        title,
+        suffix,
+        rowguid,
+        lastname as last_name,
+        firstname as first_name,
+        namestyle as name_style,
+        middlename as middle_name,
+        persontype as person_type,
+        demographics as demographics,
+        modifieddate as modified_date,
+        emailpromotion as email_promotion,
+        businessentityid as business_entity_key,
+        additionalcontactinfo as additional_contact_info
 
     from source
 )

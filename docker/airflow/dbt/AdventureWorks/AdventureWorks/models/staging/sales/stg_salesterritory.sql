@@ -5,16 +5,16 @@ with source as (
 ),
 renamed as (
     select
-        {{ adapter.quote("Name") }},
-        {{ adapter.quote("Group") }},
-        {{ adapter.quote("costytd") }},
-        {{ adapter.quote("rowguid") }},
-        {{ adapter.quote("salesytd") }},
-        {{ adapter.quote("territoryid") }},
-        {{ adapter.quote("costlastyear") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("saleslastyear") }},
-        {{ adapter.quote("countryregioncode") }}
+        "Name" as sales_territory_name,
+        "Group" as sales_territory_group,
+        costytd as cost_ytd,
+        rowguid,
+        salesytd as sales_ytd,
+        territoryid as territory_key,
+        costlastyear as cost_last_year,
+        modifieddate as modified_date,
+        saleslastyear as sales_last_year,
+        countryregioncode as country_region_code
 
     from source
 )

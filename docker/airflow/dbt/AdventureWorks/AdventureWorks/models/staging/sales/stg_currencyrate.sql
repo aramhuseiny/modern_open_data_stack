@@ -5,13 +5,13 @@ with source as (
 ),
 currencyrate as (
     select
-        {{ adapter.quote("averagerate") }},
-        {{ adapter.quote("endofdayrate") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("currencyrateid") }},
-        {{ adapter.quote("tocurrencycode") }},
-        {{ adapter.quote("currencyratedate") }},
-        {{ adapter.quote("fromcurrencycode") }}
+        averagerate as average_rate,
+        endofdayrate as end_of_day_rate,
+        modifieddate as modified_date,
+        currencyrateid as currency_rate_key,
+        tocurrencycode as to_currency_code,
+        currencyratedate as currency_rate_date,
+        fromcurrencycode as from_currency_code
 
     from source
 )

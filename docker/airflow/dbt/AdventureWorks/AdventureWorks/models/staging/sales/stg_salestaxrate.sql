@@ -5,13 +5,13 @@ with source as (
 ),
 renamed as (
     select
-        {{ adapter.quote("Name") }},
-        {{ adapter.quote("taxrate") }},
-        {{ adapter.quote("taxtype") }},
-        {{ adapter.quote("rowguid") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("salestaxrateid") }},
-        {{ adapter.quote("stateprovinceid") }}
+        "Name" as sales_tax_rate_name,
+        taxrate as tax_rate,
+        taxtype as tax_type,
+        rowguid,
+        modifieddate as modified_date,
+        salestaxrateid as sales_tax_rate_key,
+        stateprovinceid as state_province_key
 
     from source
 )

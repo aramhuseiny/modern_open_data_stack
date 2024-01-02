@@ -5,9 +5,9 @@ with source as (
 ),
 countryregioncurrency as (
     select
-        {{ adapter.quote("currencycode") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("countryregioncode") }}
+        currencycode as currency_code,
+        modifieddate  as modified_date,
+        countryregioncode as country_region_code
 
     from source
 )

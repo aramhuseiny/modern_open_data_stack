@@ -5,17 +5,17 @@ with source as (
 ),
 renamed as (
     select
-        {{ adapter.quote("Type") }},
-        {{ adapter.quote("maxqty") }},
-        {{ adapter.quote("minqty") }},
-        {{ adapter.quote("enddate") }},
-        {{ adapter.quote("rowguid") }},
-        {{ adapter.quote("category") }},
-        {{ adapter.quote("startdate") }},
-        {{ adapter.quote("description") }},
-        {{ adapter.quote("discountpct") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("specialofferid") }}
+        "Type" as special_offer_type,
+        maxqty as max_qty,
+        minqty as min_qty,
+        enddate as end_date,
+        rowguid,
+        category,
+        startdate as start_date,
+        "description" as special_offer_description,
+        discountpct as discount_pct,
+        modifieddate as modified_date,
+        specialofferid as special_offer_key
 
     from source
 )

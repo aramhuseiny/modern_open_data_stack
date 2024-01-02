@@ -3,9 +3,9 @@ with source as (
 ),
 renamed as (
     select
-        {{ adapter.quote("Name") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("contacttypeid") }}
+        "Name" as content_type_name,
+        modifieddate as modified_date,
+        contacttypeid as contact_type_key
 
     from source
 )

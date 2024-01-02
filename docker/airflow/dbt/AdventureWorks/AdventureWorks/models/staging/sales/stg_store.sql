@@ -5,12 +5,12 @@ with source as (
 ),
 renamed as (
     select
-        {{ adapter.quote("Name") }},
-        {{ adapter.quote("rowguid") }},
-        {{ adapter.quote("demographics") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("salespersonid") }},
-        {{ adapter.quote("businessentityid") }}
+        "Name" as store_name,
+        rowguid,
+        demographics,
+        modifieddate as modified_date,
+        salespersonid as sales_person_key,
+        businessentityid as business_entity_key
     from source
 )
 select * from renamed

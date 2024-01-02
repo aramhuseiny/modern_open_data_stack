@@ -5,12 +5,12 @@ with source as (
 ),
 renamed as (
     select
-        {{ adapter.quote("quantity") }},
-        {{ adapter.quote("productid") }},
-        {{ adapter.quote("datecreated") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("shoppingcartid") }},
-        {{ adapter.quote("shoppingcartitemid") }}
+        quantity,
+        productid as product_key,
+        datecreated as date_created,
+        modifieddate as modified_date,
+        shoppingcartid as shopping_cart_key,
+        shoppingcartitemid as shopping_cart_item_key
 
     from source
 )

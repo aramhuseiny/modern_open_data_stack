@@ -3,11 +3,11 @@ with source as (
 ),
 renamed as (
     select
-        {{ adapter.quote("rowguid") }},
-        {{ adapter.quote("personid") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("contacttypeid") }},
-        {{ adapter.quote("businessentityid") }}
+        rowguid,
+        personid as person_key,
+        modifieddate as modified_date,
+        contacttypeid as contact_type_key,
+        businessentityid as business_entity_key
 
     from source
 )

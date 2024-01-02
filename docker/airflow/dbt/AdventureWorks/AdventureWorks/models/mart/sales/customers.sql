@@ -6,7 +6,7 @@ persons as (
 ),
 final as (
     select 
-        persons.title, persons.firstname, persons.middlename, persons.lastname, persons.suffix, customers.accountnumber
-    from persons join customers on customers.personid = persons.businessentityid
+        persons.title, persons.first_name, persons.middle_name, persons.last_name, persons.suffix, customers.account_number
+    from persons join customers on customers.person_key = persons.business_entity_key
 )
 select * from final

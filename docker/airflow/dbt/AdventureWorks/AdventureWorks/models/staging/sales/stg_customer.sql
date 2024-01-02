@@ -5,13 +5,13 @@ with source as (
 ),
 customers as (
     select
-        {{ adapter.quote("storeid") }},
-        {{ adapter.quote("rowguid") }},
-        {{ adapter.quote("personid") }},
-        {{ adapter.quote("customerid") }},
-        {{ adapter.quote("territoryid") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("accountnumber") }}
+        storeid as store_key,
+        rowguid,
+        personid as person_key,
+        customerid as customer_key,
+        territoryid as territory_key,
+        modifieddate as modified_date,
+        accountnumber as account_number
 
     from source
 )

@@ -6,7 +6,7 @@ renamed as (
         jobcandidateid as job_candidate_key,
         businessentityid as business_entity_id,
         resume,
-        modifieddate as modfied_date
+        modifieddate as modified_date
       
 
     from source

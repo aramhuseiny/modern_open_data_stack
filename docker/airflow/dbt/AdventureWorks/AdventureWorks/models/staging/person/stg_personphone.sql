@@ -3,10 +3,10 @@ with source as (
 ),
 renamed as (
     select
-        {{ adapter.quote("phonenumber") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("businessentityid") }},
-        {{ adapter.quote("phonenumbertypeid") }}
+        phonenumber as phone_number,
+        modifieddate as modified_date,
+        businessentityid as business_entity_key,
+        phonenumbertypeid as phone_number_type_key
     from source
 )
 select * from renamed

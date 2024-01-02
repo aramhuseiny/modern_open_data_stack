@@ -4,15 +4,15 @@ with source as (
 renamed as (
     select 
 
-        {{ adapter.quote("city") }},
-        {{ adapter.quote("rowguid") }},
-        {{ adapter.quote("addressid") }},
-        {{ adapter.quote("postalcode") }},
-        {{ adapter.quote("addressline1") }},
-        {{ adapter.quote("addressline2") }},
-        {{ adapter.quote("modifieddate") }},
-        {{ adapter.quote("spatiallocation") }},
-        {{ adapter.quote("stateprovinceid") }}
+        city,
+        rowguid,
+        addressid as address_key,
+        postalcode as postal_code,
+        addressline1 as address_line1,
+        addressline2 as address_line2,
+        modifieddate as modified_date,
+        spatiallocation as spatial_location,
+        stateprovinceid as state_province_key
     from source
 )
 select * from renamed

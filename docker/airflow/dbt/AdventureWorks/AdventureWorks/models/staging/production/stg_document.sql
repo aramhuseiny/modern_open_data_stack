@@ -20,7 +20,7 @@ renamed as (
         documentsummary as document_summary,
         "Document" as document,
         rowguid,
-        modifieddate as modfied_date
+        modifieddate as modified_date
 
     from source
 )

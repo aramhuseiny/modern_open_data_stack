@@ -4,20 +4,20 @@
 renamed as (
     select 
 
-        {{ adapter.quote("businessentityid") }},
-        {{ adapter.quote("nationalidnumber") }},
-        {{ adapter.quote("organizationnode") }},
-        {{ adapter.quote("organizationlevel") }},
-        {{ adapter.quote("jobtitle")}},
-        {{ adapter.quote("birthdate") }},
-        {{ adapter.quote("maritalstatus") }},
-        {{ adapter.quote("gender") }},
-        {{ adapter.quote("salariedflag") }},
-        {{ adapter.quote("vacationhours") }},
-        {{ adapter.quote("sickleavehours") }},
-        {{ adapter.quote("currentflag") }},
-        {{ adapter.quote("rowguid") }},
-        {{ adapter.quote("modifieddate") }}
+        businessentityid as business_entity_id,
+        nationalidnumber as national_id_number,
+        organizationnode as organization_node,
+        organizationlevel as organization_level,
+        jobtitle as job_title,
+        birthdate,
+        maritalstatus as marital_status,
+        gender,
+        salariedflag as salaried_flag,
+        vacationhours vacation_hours,
+        sickleavehours as sick_leave_hours,
+        currentflag as current_flag,
+        rowguid,
+        modifieddate as modified_date
 
 
     from source

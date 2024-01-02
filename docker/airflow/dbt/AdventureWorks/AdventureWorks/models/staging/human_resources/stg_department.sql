@@ -4,10 +4,10 @@ with source as (
 renamed as (
     select 
 
-        {{ adapter.quote("Name") }},
-        {{ adapter.quote("groupname") }},
-        {{ adapter.quote("departmentid") }},
-        {{ adapter.quote("modifieddate") }}
+        "Name" as department_name,
+        groupname as group_name,
+        departmentid as department_key,
+        modifieddate  as modified_date
 
     from source
 )

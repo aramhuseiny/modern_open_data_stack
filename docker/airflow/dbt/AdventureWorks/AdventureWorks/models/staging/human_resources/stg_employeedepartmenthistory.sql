@@ -3,12 +3,12 @@
 ),
 renamed as (
     select 
-        {{ adapter.quote("businessentityid") }},
-        {{ adapter.quote("departmentid") }},
-        {{ adapter.quote("shiftid") }},
-        {{ adapter.quote("startdate")}},
-        {{ adapter.quote("enddate") }},
-        {{ adapter.quote("modifieddate") }}
+        businessentityid as business_entity_id,
+        departmentid as department_key,
+        shiftid as shift_id,
+        startdate as start_date,
+        enddate as end_date,
+        modifieddate as modified_date
       
 
     from source

@@ -4,11 +4,11 @@
 renamed as (
     select 
 
-        {{ adapter.quote("businessentityid") }},
-        {{ adapter.quote("ratechangedate") }},
-        {{ adapter.quote("rate") }},
-        {{ adapter.quote("payfrequency") }},
-        {{ adapter.quote("modifieddate")}}      
+        businessentityid as business_entity_key,
+        ratechangedate as rate_change_date,
+        rate,
+        payfrequency as pay_frequency,
+        modifieddate as modified_date
       
 
     from source

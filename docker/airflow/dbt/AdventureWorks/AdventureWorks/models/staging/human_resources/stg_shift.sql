@@ -4,11 +4,11 @@
 renamed as (
     select 
 
-        {{ adapter.quote("Name") }},
-        {{ adapter.quote("endtime") }},
-        {{ adapter.quote("shiftid") }},
-        {{ adapter.quote("starttime")}},
-        {{ adapter.quote("modifieddate")}}       
+        "Name" as shift_name,
+        endtime as end_time,
+        shiftid as shift_key,
+        starttime as start_time,
+        modifieddate as modified_date
       
 
     from source

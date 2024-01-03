@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: purchasing
+    schema: raw
+    tables:
+      - name: productvendor
+      - name: purchaseorderdetail
+      - name: purchaseorderheader
+      - name: shipmethod
+      - name: vendor

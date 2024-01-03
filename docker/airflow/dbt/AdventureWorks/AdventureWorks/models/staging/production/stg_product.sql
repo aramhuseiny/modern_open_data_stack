@@ -23,13 +23,13 @@ renamed as (
         standardcost as standard_cost,
         productnumber as product_number,
         sellstartdate as sell_start_date,
-        productmodelid as productmodelkey,
+        productmodelid as product_model_key,
         discontinueddate as discontinued_date,
         safetystocklevel as safety_stock_level,
         daystomanufacture as days_to_manufacture,
         finishedgoodsflag as finished_goods_flag,
         sizeunitmeasurecode as size_unit_measure_code,
-        productsubcategoryid as productsubcategorykey,
+        productsubcategoryid as product_subcategory_key,
         weightunitmeasurecode as weight_unit_measure_code
     from source
 )

@@ -1,10 +1,10 @@
-       with source as (
+with source as (
       select * from {{ source('human_resources', 'employee') }}
 ),
 renamed as (
     select 
 
-        businessentityid as business_entity_id,
+        businessentityid as business_entity_key,
         nationalidnumber as national_id_number,
         organizationnode as organization_node,
         organizationlevel as organization_level,

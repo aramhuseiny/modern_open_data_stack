@@ -29,7 +29,7 @@ renamed as (
         onlineorderflag as online_order_flag,
         shiptoaddressid as ship_to_address_key,
         salesordernumber as sales_order_number,
-        purchaseordernumber purchase_order_number,
+        purchaseordernumber as purchase_order_number,
         creditcardapprovalcode as credit_card_approval_code
 
     from source

@@ -39,3 +39,8 @@ models:
     mart:
       +schema: mart
       +materialized: table
+    report:
+      +schema: report
+      +materialized: table
+     
+

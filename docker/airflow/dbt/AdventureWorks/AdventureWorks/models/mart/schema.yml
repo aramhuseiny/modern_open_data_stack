@@ -1,0 +1,113 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: ""
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: product_key
+        data_type: int8
+        
+        # column-level constraints
+        constraints:
+          - type: not_null
+          - type: primary_key
+          - type: check
+            expression: "product_key > 0"
+
+      - name: product_name
+        data_type: string
+
+      - name: product_number
+        data_type: string
+
+      - name: product_color
+        data_type: string
+
+      - name: product_weight
+        data_type: float8
+
+      - name: list_price
+        data_type: float8
+
+      - name: standard_cost
+        data_type: float8
+
+      - name: product_size
+        data_type: string
+
+      - name: product_class
+        data_type: string
+        
+
+      - name: product_style
+        data_type: string
+
+      - name: product_line
+        data_type: string
+
+  - name: dim_customers
+    description: ""
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: customer_key
+        data_type: int8
+        
+        # column-level constraints
+        constraints:
+          - type: not_null
+          - type: primary_key
+          - type: check
+            expression: "customer_key > 0"
+
+      - name: title
+        data_type: string
+
+      - name: first_name
+        data_type: string
+
+      - name: middle_name
+        data_type: string
+
+      - name: last_name
+        data_type: string
+
+      - name: suffix
+        data_type: string
+
+      - name: customer_alternate_key
+        data_type: string
+
+      - name: gender
+        data_type: string
+
+      - name: email_address
+        data_type: string
+        
+  - name: dim_currency
+    description: ""
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: currency_key
+        data_type: string
+        
+        # column-level constraints
+        constraints:
+          - type: not_null
+          - type: primary_key
+          - type: check
+            expression: "currency_key > 0"
+
+      - name: currency_name
+        data_type: string
+
+      - name: currency_alternate_key
+        data_type: string
+
+

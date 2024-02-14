@@ -614,6 +614,25 @@ services:
           ipv4_address: 10.5.40.2
 
 
+
+  mssql_dw:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: olap_initial_msqql_db
+    ports:
+        - 1404:1433
+    environment:
+            SA_PASSWORD: "Apadanadev@1"
+            ACCEPT_EULA: "Y"
+    volumes:
+      - ./mssql/AdventureWorksDW2022.bak:/mnt/AdventureWorksDW2022.bak
+      # - ./mssql/data/mssql_data:/var/opt/mssql/data
+      # - ./mssql/data/mssql_log:/var/opt/mssql/log
+      # - ./mssql/data/mssql_secrets:/var/opt/mssql/secrets
+    networks:
+        de-network:
+          ipv4_address: 10.5.40.3
+
+
 volumes:
   workspace:
      name:                                      ${WORKSPACE_DOCKER_MOUNT}

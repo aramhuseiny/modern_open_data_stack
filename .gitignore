@@ -4,3 +4,7 @@ docker/airflow/dags/__pycache__/
 docker/logs/scheduler/*
 docker/mssql/AdventureWorks2022.bak
 docker/mssql/data/*
+docker/airflow/dbt/Namaad
+docker/airflow/dbt/parnian
+docker/airflow/dags/nmd_dag.py
+docker/airflow/dags/parnian_dag.py
